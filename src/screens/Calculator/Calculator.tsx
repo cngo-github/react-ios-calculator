@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Display from "../../components/Display/Display";
 import Keypad from "../../components/Keypad/Keypad";
 import {
@@ -11,10 +11,13 @@ import {
 import "./style.scss";
 
 const Calculator = () => {
-  const [operandOne, setOperandOne] = useState(".8");
-  const [operandOneIsSet, setOperandOneIsSet] = useState(false);
-  const [operandTwo, setOperandTwo] = useState("0");
+  const [operandOne, setOperandOne] = useState("NaN");
+  const [operandTwo, setOperandTwo] = useState("NaN");
   const [operator, setOperator] = useState("");
+
+  useEffect(() => {
+    setOperandOne("0");
+  });
 
   const processInput = (value: string) => {
     const valueNumber = parseInt(value);
@@ -42,7 +45,7 @@ const Calculator = () => {
       const result = calculate(operandOne, operandTwo, operator);
 
       setOperandOne(result.toString());
-      setOperandTwo("0");
+      setOperandTwo("NaN");
       setOperator("");
     }
 
@@ -53,8 +56,7 @@ const Calculator = () => {
 
   const allClear = () => {
     setOperandOne("0");
-    setOperandOneIsSet(false);
-    setOperandTwo("0");
+    setOperandTwo("NaN");
     setOperator("");
   };
 
@@ -81,7 +83,7 @@ const Calculator = () => {
       <div className="calculator">
         <Display
           label={
-            operator && operandTwo !== "0"
+            operator && operandTwo !== "NaN"
               ? operandTwo.toString()
               : `${operandOne} ${operator || ""}`
           }
@@ -94,7 +96,6 @@ const Calculator = () => {
           processOperator={processOperator}
         />
       </div>
-      {operator || "none"}
     </div>
   );
 };

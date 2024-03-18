@@ -3,7 +3,6 @@ export const calculate = (
   operandTwo: string,
   operator: string
 ) => {
-  console.log(operator);
   if (!operator) {
     return operandOne;
   }
@@ -13,7 +12,7 @@ export const calculate = (
     .filter((n: number) => !isNaN(n));
 
   if (operands.length < 2) {
-    return "NaN";
+    return operands[0];
   }
 
   switch (operator) {
@@ -73,7 +72,10 @@ const addToNumber = (
     return;
   }
 
-  const update = operand === "0" ? value.toString() : `${operand}${value}`;
+  const update =
+    operand === "0" || operand === "NaN"
+      ? value.toString()
+      : `${operand}${value}`;
 
   fn(update);
 };
