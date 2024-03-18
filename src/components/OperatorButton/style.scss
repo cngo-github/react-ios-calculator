@@ -1,0 +1,6 @@
+#operator {
+  @import "../Button/style.scss";
+  @import "../../config/buttons.scss";
+
+  @include baseButton($operator-background-color, $base-font-color);
+}

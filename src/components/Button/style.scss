@@ -1,0 +1,34 @@
+@import "../../config/buttons.scss";
+
+@mixin baseButton(
+  $buttonColor: $base-background-color,
+  $textColor: $base-font-color
+) {
+  .button {
+    width: $base-radius;
+    height: $base-radius;
+    border-radius: $base-border-radius;
+    display: flex;
+    margin: $base-margin;
+
+    box-sizing: border-box;
+    background-color: $buttonColor;
+    border: 3px solid transparent;
+
+    cursor: pointer;
+
+    // Label Style
+    color: $textColor;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button:active {
+    border: 3px solid lighten($color: $buttonColor, $amount: 20%);
+  }
+}
+
+#button {
+  @include baseButton();
+}

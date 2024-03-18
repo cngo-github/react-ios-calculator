@@ -1,0 +1,6 @@
+#other {
+  @import "../Button/style.scss";
+  @import "../../config/buttons.scss";
+
+  @include baseButton($other-background-color, $other-font-color);
+}

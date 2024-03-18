@@ -1,0 +1,9 @@
+#double-width {
+  @import "../Button/style.scss";
+
+  @include baseButton();
+
+  .button {
+    width: 2 * $base-radius + 2 * $base-margin;
+  }
+}

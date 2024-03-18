@@ -1,0 +1,19 @@
+#display {
+  @import "../../config/config.scss";
+
+  .display {
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    width: 100%;
+    background-color: $display-background-color;
+  }
+
+  .label {
+    font-size: 5rem;
+    color: $display-font-color;
+    text-align: right;
+
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

@@ -1,0 +1,16 @@
+#calculator {
+  @import "../../config/config.scss";
+
+  .calculator {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    border-radius: 1rem;
+
+    box-sizing: border-box;
+    background-color: $calculator-background-color;
+    border: 0.3rem solid $calculator-border-color;
+  }
+}
