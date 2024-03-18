@@ -1,3 +1,6 @@
+import { DOT, Operator } from "../constants/keypad";
+import { NOT_A_NUMBER, ZERO } from "../constants/number";
+
 export const calculate = (
   operandOne: string,
   operandTwo: string,
@@ -16,16 +19,16 @@ export const calculate = (
   }
 
   switch (operator) {
-    case "x":
+    case Operator.MULTIPLY:
       return operands[0] * operands[1];
-    case "/":
-      return operands[1] === 0 ? "NaN" : operands[0] / operands[1];
-    case "-":
+    case Operator.DIVIDE:
+      return operands[1] === 0 ? NOT_A_NUMBER : operands[0] / operands[1];
+    case Operator.SUBTRACT:
       return operands[0] - operands[1];
-    case "+":
+    case Operator.ADD:
       return operands[0] + operands[1];
     default:
-      return "NaN";
+      return NOT_A_NUMBER;
   }
 };
 
@@ -68,12 +71,12 @@ const addToNumber = (
   operand: string,
   fn: (value: string) => void
 ) => {
-  if (value === "." && operand.includes(".")) {
+  if (value === DOT && operand.includes(DOT)) {
     return;
   }
 
   const update =
-    operand === "0" || operand === "NaN"
+    operand === ZERO || operand === NOT_A_NUMBER
       ? value.toString()
       : `${operand}${value}`;
 
@@ -81,13 +84,15 @@ const addToNumber = (
 };
 
 const negateNumber = (operand: string, fn: (value: string) => void) =>
-  operand.startsWith("-") ? fn(operand.slice(1)) : fn(`-${operand}`);
+  operand.startsWith(Operator.SUBTRACT)
+    ? fn(operand.slice(1))
+    : fn(`-${operand}`);
 
 const numberToPercent = (operand: string, fn: (value: string) => void) => {
   const operandNumber = parseFloat(operand);
 
   if (isNaN(operandNumber)) {
-    fn("NaN");
+    fn(NOT_A_NUMBER);
     return;
   }
 

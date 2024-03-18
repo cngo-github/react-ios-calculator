@@ -1,3 +1,5 @@
+import { DOT, FunctionKeys, Operator } from "../../constants/keypad";
+import { NUMBER_KEYS, ZERO } from "../../constants/number";
 import DefaultButton from "../Button/Button";
 import DoubleWidthButton from "../DoubleWidthButton/DoubleWidthButton";
 import OperatorButton from "../OperatorButton/OperatorButton";
@@ -20,22 +22,25 @@ const Keypad = ({
   processOperator,
   processPercentConversion,
 }: KeypadProps) => {
-  const numberKeys = [
-    [7, 8, 9],
-    [4, 5, 6],
-    [1, 2, 3],
-  ];
-
   return (
     <div id="keypad">
       <div className="row">
-        <OtherButton label="AC" onClickHandler={allClear} />
-        <OtherButton label="+/-" onClickHandler={processInversion} />
-        <OtherButton label="%" onClickHandler={processPercentConversion} />
-        <OperatorButton label="/" onClickHandler={() => processOperator("/")} />
+        <OtherButton label={FunctionKeys.ALL_CLEAR} onClickHandler={allClear} />
+        <OtherButton
+          label={FunctionKeys.NEGATE}
+          onClickHandler={processInversion}
+        />
+        <OtherButton
+          label={FunctionKeys.PERCENT}
+          onClickHandler={processPercentConversion}
+        />
+        <OperatorButton
+          label={Operator.DIVIDE}
+          onClickHandler={() => processOperator(Operator.DIVIDE)}
+        />
       </div>
       <div className="row">
-        {numberKeys[0].map((value) => {
+        {NUMBER_KEYS[0].map((value) => {
           return (
             <DefaultButton
               key={value}
@@ -44,10 +49,13 @@ const Keypad = ({
             />
           );
         })}
-        <OperatorButton label="x" onClickHandler={() => processOperator("x")} />
+        <OperatorButton
+          label={Operator.MULTIPLY}
+          onClickHandler={() => processOperator(Operator.MULTIPLY)}
+        />
       </div>
       <div className="row">
-        {numberKeys[1].map((value) => {
+        {NUMBER_KEYS[1].map((value) => {
           return (
             <DefaultButton
               key={value}
@@ -56,10 +64,13 @@ const Keypad = ({
             />
           );
         })}
-        <OperatorButton label="-" onClickHandler={() => processOperator("-")} />
+        <OperatorButton
+          label={Operator.SUBTRACT}
+          onClickHandler={() => processOperator(Operator.SUBTRACT)}
+        />
       </div>
       <div className="row">
-        {numberKeys[2].map((value) => {
+        {NUMBER_KEYS[2].map((value) => {
           return (
             <DefaultButton
               key={value}
@@ -68,12 +79,21 @@ const Keypad = ({
             />
           );
         })}
-        <OperatorButton label="+"></OperatorButton>
+        <OperatorButton
+          label={Operator.ADD}
+          onClickHandler={() => processOperator(Operator.EQUALS)}
+        />
       </div>
       <div className="row">
-        <DoubleWidthButton label="0" onClickHandler={() => processInput("0")} />
-        <DefaultButton label="." onClickHandler={() => processInput(".")} />
-        <OperatorButton label="=" onClickHandler={() => processOperator("=")} />
+        <DoubleWidthButton
+          label={ZERO}
+          onClickHandler={() => processInput(ZERO)}
+        />
+        <DefaultButton label={DOT} onClickHandler={() => processInput(DOT)} />
+        <OperatorButton
+          label={Operator.EQUALS}
+          onClickHandler={() => processOperator(Operator.EQUALS)}
+        />
       </div>
     </div>
   );
