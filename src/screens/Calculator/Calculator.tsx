@@ -9,15 +9,16 @@ import {
 } from "../../logic/update";
 
 import "./style.scss";
+import { NOT_A_NUMBER, ZERO } from "../../constants/number";
 
 const Calculator = () => {
-  const [operandOne, setOperandOne] = useState("NaN");
-  const [operandTwo, setOperandTwo] = useState("NaN");
+  const [operandOne, setOperandOne] = useState(NOT_A_NUMBER);
+  const [operandTwo, setOperandTwo] = useState(NOT_A_NUMBER);
   const [operator, setOperator] = useState("");
 
   useEffect(() => {
-    setOperandOne("0");
-  });
+    setOperandOne(ZERO);
+  }, []);
 
   const processInput = (value: string) => {
     const valueNumber = parseInt(value);
@@ -45,7 +46,7 @@ const Calculator = () => {
       const result = calculate(operandOne, operandTwo, operator);
 
       setOperandOne(result.toString());
-      setOperandTwo("NaN");
+      setOperandTwo(NOT_A_NUMBER);
       setOperator("");
     }
 
@@ -55,8 +56,8 @@ const Calculator = () => {
   };
 
   const allClear = () => {
-    setOperandOne("0");
-    setOperandTwo("NaN");
+    setOperandOne(ZERO);
+    setOperandTwo(NOT_A_NUMBER);
     setOperator("");
   };
 
@@ -83,7 +84,7 @@ const Calculator = () => {
       <div className="calculator">
         <Display
           label={
-            operator && operandTwo !== "NaN"
+            operator && operandTwo !== NOT_A_NUMBER
               ? operandTwo.toString()
               : `${operandOne} ${operator || ""}`
           }

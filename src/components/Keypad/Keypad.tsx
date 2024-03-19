@@ -81,7 +81,7 @@ const Keypad = ({
         })}
         <OperatorButton
           label={Operator.ADD}
-          onClickHandler={() => processOperator(Operator.EQUALS)}
+          onClickHandler={() => processOperator(Operator.ADD)}
         />
       </div>
       <div className="row">
