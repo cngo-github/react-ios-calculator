@@ -12,17 +12,17 @@ const colors = {
   function: {
     backgroundColor: "#a5a5a5",
     fontColor: "#000000",
-    hoverColor: "#d3d3d3",
+    hoverColor: "#cecece",
   },
   number: {
     backgroundColor: "#333333",
     fontColor: "#ffffff",
-    hoverColor: "#666666",
+    hoverColor: "#404040",
   },
   operator: {
-    backgroundColor: "#ff7538",
+    backgroundColor: "#ff9f00",
     fontColor: "#ffffff",
-    hoverColor: "#ff9966",
+    hoverColor: "#ecb253",
   },
 };
 
