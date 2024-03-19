@@ -1,8 +1,20 @@
-import { btnFunction, btnNumber, btnOperator } from "./buttons";
+import {
+  KeypadFunction,
+  KeypadNumber,
+  KeypadOperator,
+  btnFunction,
+  btnNumber,
+  btnOperator,
+} from "./buttons";
 
+export interface KeypadKeyEntry {
+  label: string;
+  type: KeypadFunction | KeypadNumber | KeypadOperator;
+  isDoubleWidth: boolean;
+}
 export const KEY_SPACING = "2rem";
 
-export const KEYPAD_ARRANGEMENT = [
+export const KEYPAD_ARRANGEMENT: KeypadKeyEntry[][] = [
   [
     {
       label: "AC",

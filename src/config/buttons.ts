@@ -8,7 +8,19 @@ export const BASE_KEY = {
   radius: "5rem",
 };
 
-const colors = {
+export interface KeyColor {
+  backgroundColor: string;
+  fontColor: string;
+  hoverColor: string;
+}
+
+export interface KeyColors {
+  function: KeyColor;
+  number: KeyColor;
+  operator: KeyColor;
+}
+
+const colors: KeyColors = {
   function: {
     backgroundColor: "#a5a5a5",
     fontColor: "#000000",
