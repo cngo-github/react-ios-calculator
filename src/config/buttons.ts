@@ -30,20 +30,6 @@ export type KeypadFunction = typeof btnFunction;
 export type KeypadNumber = typeof btnNumber;
 export type KeypadOperator = typeof btnOperator;
 
-// export type KeypadKey = KeypadFunction | KeypadNumber | KeypadOperator;
-
-//export const isFunctionKey = (
-//  btnType: KeypadKey
-//): btnType is KeypadFunction => {
-//  return true;
-//};
-
-//export const isOperatorKey = (
-//  btnType: KeypadKey
-//): btnType is KeypadOperator => {
-//  return true;
-//};
-
 export const getColors = (
   btnType: KeypadFunction | KeypadNumber | KeypadOperator
 ) => {
