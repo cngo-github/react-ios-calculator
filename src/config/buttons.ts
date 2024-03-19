@@ -5,13 +5,15 @@ export const btnOperator = "operator" as const;
 export const BASE_KEY = {
   borderRadius: "5rem",
   fontSize: "2rem",
-  radius: "5rem",
+  height: "5rem",
 };
 
 export interface KeyColor {
   backgroundColor: string;
-  fontColor: string;
-  hoverColor: string;
+  color: string;
+  "&:hover": {
+    backgroundColor: string;
+  };
 }
 
 export interface KeyColors {
@@ -23,18 +25,24 @@ export interface KeyColors {
 const colors: KeyColors = {
   function: {
     backgroundColor: "#a5a5a5",
-    fontColor: "#000000",
-    hoverColor: "#cecece",
+    color: "#000000",
+    "&:hover": {
+      backgroundColor: "#cecece",
+    },
   },
   number: {
     backgroundColor: "#333333",
-    fontColor: "#ffffff",
-    hoverColor: "#404040",
+    color: "#ffffff",
+    "&:hover": {
+      backgroundColor: "#404040",
+    },
   },
   operator: {
     backgroundColor: "#ff9f00",
-    fontColor: "#ffffff",
-    hoverColor: "#ecb253",
+    color: "#ffffff",
+    "&:hover": {
+      backgroundColor: "#ecb253",
+    },
   },
 };
 

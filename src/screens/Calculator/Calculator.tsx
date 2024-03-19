@@ -8,13 +8,7 @@ const Calculator = () => {
     <Stack
       spacing={CALCULATOR.componentSpacing}
       sx={{
-        backgroundColor: CALCULATOR.backgroundColor,
-        paddingTop: CALCULATOR.topPadding,
-        paddingBottom: CALCULATOR.bottomPadding,
-        paddingLeft: CALCULATOR.sidePadding,
-        paddingRight: CALCULATOR.sidePadding,
-        border: CALCULATOR.border,
-        borderRadius: CALCULATOR.borderRadius,
+        ...CALCULATOR,
         boxSizing: "border-box",
       }}
     >

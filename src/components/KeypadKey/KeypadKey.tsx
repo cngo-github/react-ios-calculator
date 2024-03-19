@@ -20,10 +20,10 @@ const KeypadKey = ({ label, variant, isDoubleWidth = false }: KeyProps) => {
 
   const calculateWidth = (doubled: boolean) => {
     if (!doubled) {
-      return BASE_KEY.radius;
+      return BASE_KEY.height;
     }
 
-    const radius = remToNumber(BASE_KEY.radius);
+    const radius = remToNumber(BASE_KEY.height);
     const margin = remToNumber(KEY_SPACING);
 
     return `${2 * radius + margin}rem`;
@@ -33,15 +33,9 @@ const KeypadKey = ({ label, variant, isDoubleWidth = false }: KeyProps) => {
     <Button
       variant="contained"
       sx={{
-        backgroundColor: variantColors.backgroundColor,
-        color: variantColors.fontColor,
-        fontSize: BASE_KEY.fontSize,
+        ...variantColors,
+        ...BASE_KEY,
         width: calculateWidth(isDoubleWidth),
-        height: BASE_KEY.radius,
-        borderRadius: BASE_KEY.borderRadius,
-        "&:hover": {
-          backgroundColor: variantColors.hoverColor,
-        },
       }}
     >
       {label}

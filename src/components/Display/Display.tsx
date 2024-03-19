@@ -7,17 +7,7 @@ export interface DisplayProps {
 
 const Display = ({ value }: DisplayProps) => {
   return (
-    <Typography
-      variant="h1"
-      align="right"
-      sx={{
-        backgroundColor: DISPLAY.backgroundColor,
-        color: DISPLAY.fontColor,
-        paddingTop: DISPLAY.padding,
-        paddingLeft: DISPLAY.padding,
-        paddingRight: DISPLAY.padding,
-      }}
-    >
+    <Typography variant="h1" align="right" sx={DISPLAY}>
       {value}
     </Typography>
   );

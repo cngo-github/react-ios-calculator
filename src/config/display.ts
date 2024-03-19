@@ -1,5 +1,7 @@
 export const DISPLAY = {
   backgroundColor: "#444444",
-  fontColor: "#ffffff",
-  padding: "1rem",
+  color: "#ffffff",
+  paddingTop: "1rem",
+  paddingLeft: "1rem",
+  paddingRight: "1rem",
 };
