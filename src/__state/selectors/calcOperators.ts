@@ -56,7 +56,10 @@ export const operatorSelector = selector({
     }
 
     if (currOperator === CALC_OPERATOR.None) {
-      set(operatorAtom, newOperator);
+      if (newOperator !== CALC_OPERATOR.Equals) {
+        set(operatorAtom, newOperator);
+      }
+
       return;
     }
 
