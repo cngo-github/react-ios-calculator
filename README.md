@@ -1,2 +1,3 @@
 # react-ios-calculator
-A react version of the IOS calculator
+
+A React version of the IOS calculator made with Material UI and Recoil.
