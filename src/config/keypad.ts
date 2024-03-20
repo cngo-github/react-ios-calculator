@@ -1,15 +1,8 @@
-import {
-  KeypadFunction,
-  KeypadNumber,
-  KeypadOperator,
-  btnFunction,
-  btnNumber,
-  btnOperator,
-} from "./buttons";
+import { CALC_FUNCTION } from "../constants/function";
+import { CALC_OPERATOR } from "../constants/operator";
 
 export interface KeypadKeyEntry {
   label: string;
-  type: KeypadFunction | KeypadNumber | KeypadOperator;
   isDoubleWidth: boolean;
 }
 export const KEY_SPACING = "2rem";
@@ -17,106 +10,87 @@ export const KEY_SPACING = "2rem";
 export const KEYPAD_ARRANGEMENT: KeypadKeyEntry[][] = [
   [
     {
-      label: "AC",
-      type: btnFunction,
+      label: CALC_FUNCTION.AllClear,
       isDoubleWidth: false,
     },
     {
-      label: "+/-",
-      type: btnFunction,
+      label: CALC_FUNCTION.Negate,
       isDoubleWidth: false,
     },
     {
-      label: "%",
-      type: btnFunction,
+      label: CALC_FUNCTION.Percent,
       isDoubleWidth: false,
     },
     {
-      label: "/",
-      type: btnOperator,
+      label: CALC_OPERATOR.Divide,
       isDoubleWidth: false,
     },
   ],
   [
     {
       label: "7",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
       label: "8",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
       label: "9",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
-      label: "x",
-      type: btnOperator,
+      label: CALC_OPERATOR.Multiply,
       isDoubleWidth: false,
     },
   ],
   [
     {
       label: "4",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
       label: "5",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
       label: "6",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
-      label: "-",
-      type: btnOperator,
+      label: CALC_OPERATOR.Subtract,
       isDoubleWidth: false,
     },
   ],
   [
     {
       label: "1",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
       label: "2",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
       label: "3",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
-      label: "+",
-      type: btnOperator,
+      label: CALC_OPERATOR.Add,
       isDoubleWidth: false,
     },
   ],
   [
     {
       label: "0",
-      type: btnNumber,
       isDoubleWidth: true,
     },
     {
       label: ".",
-      type: btnNumber,
       isDoubleWidth: false,
     },
     {
-      label: "=",
-      type: btnOperator,
+      label: CALC_OPERATOR.Equals,
       isDoubleWidth: false,
     },
   ],

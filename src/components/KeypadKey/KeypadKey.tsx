@@ -11,12 +11,16 @@ import { KEY_SPACING } from "../../config/keypad";
 
 export interface KeyProps {
   label: string;
-  variant: KeypadFunction | KeypadNumber | KeypadOperator;
+  clickHandler?: () => void;
   isDoubleWidth?: boolean;
 }
 
-const KeypadKey = ({ label, variant, isDoubleWidth = false }: KeyProps) => {
-  const variantColors = getColors(variant);
+const KeypadKey = ({
+  label,
+  clickHandler = () => {},
+  isDoubleWidth = false,
+}: KeyProps) => {
+  const variantColors = getColors(label);
 
   const calculateWidth = (doubled: boolean) => {
     if (!doubled) {
@@ -37,6 +41,7 @@ const KeypadKey = ({ label, variant, isDoubleWidth = false }: KeyProps) => {
         ...BASE_KEY,
         width: calculateWidth(isDoubleWidth),
       }}
+      onClick={clickHandler}
     >
       {label}
     </Button>

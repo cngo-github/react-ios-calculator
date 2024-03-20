@@ -12,7 +12,7 @@ const Calculator = () => {
         boxSizing: "border-box",
       }}
     >
-      <Display value="1" />
+      <Display />
       <Keypad />
     </Stack>
   );

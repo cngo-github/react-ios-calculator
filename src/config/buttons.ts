@@ -1,3 +1,6 @@
+import { isCalcFunction } from "../constants/function";
+import { isCalcOperator } from "../constants/operator";
+
 export const btnFunction = "function" as const;
 export const btnNumber = "number" as const;
 export const btnOperator = "operator" as const;
@@ -50,16 +53,12 @@ export type KeypadFunction = typeof btnFunction;
 export type KeypadNumber = typeof btnNumber;
 export type KeypadOperator = typeof btnOperator;
 
-export const getColors = (
-  btnType: KeypadFunction | KeypadNumber | KeypadOperator
-) => {
-  const s = btnType as string;
-
-  if (s === btnFunction) {
+export const getColors = (value: string) => {
+  if (isCalcFunction(value)) {
     return colors[btnFunction];
   }
 
-  if (s === btnOperator) {
+  if (isCalcOperator(value)) {
     return colors[btnOperator];
   }
 

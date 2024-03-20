@@ -5,3 +5,5 @@ export const DISPLAY = {
   paddingLeft: "1rem",
   paddingRight: "1rem",
 };
+
+export const DISPLAY_SIZE = 6;

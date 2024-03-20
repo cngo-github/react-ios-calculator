@@ -1,11 +1,11 @@
+import { useRecoilValue } from "recoil";
 import Typography from "@mui/material/Typography";
 import { DISPLAY } from "../../config/display";
+import { inputSelector } from "../../__state/selectors/display";
 
-export interface DisplayProps {
-  value: string;
-}
+const Display = () => {
+  const value = useRecoilValue(inputSelector);
 
-const Display = ({ value }: DisplayProps) => {
   return (
     <Typography variant="h1" align="right" sx={DISPLAY}>
       {value}
