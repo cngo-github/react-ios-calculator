@@ -28,6 +28,8 @@ const getNewValue = (newValue: string | DefaultValue, current: string) => {
   if (newValue.startsWith(DECIMAL_POINT)) {
     return ZERO + DECIMAL_POINT;
   }
+
+  return newValue;
 };
 
 export const firstOperandSelector = selector({

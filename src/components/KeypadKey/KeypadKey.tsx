@@ -1,12 +1,5 @@
 import Button from "@mui/material/Button";
-import {
-  BASE_KEY,
-  getColors,
-  KeypadFunction,
-  KeypadNumber,
-  KeypadOperator,
-  remToNumber,
-} from "../../config/buttons";
+import { BASE_KEY, getColors, remToNumber } from "../../config/buttons";
 import { KEY_SPACING } from "../../config/keypad";
 
 export interface KeyProps {
